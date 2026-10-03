@@ -1,0 +1,109 @@
+[
+  {
+    "runbook_id": "RB-LAB-003",
+    "title": "Redis client connection limit exhausted",
+    "service": "Redis",
+    "environment": "sandbox",
+    "platform_version": "lab-v1",
+    "symptom": "Redis client connection limit exhausted",
+    "owner": "author-a",
+    "status": "approved",
+    "source_ticket_ids": [
+      "LAB-003"
+    ],
+    "validation_evidence": "Synthetic fixture completed; no real Redis change or production evidence.",
+    "prerequisites": [
+      "Confirm sandbox Redis service and approved access; capture current state."
+    ],
+    "diagnostic_steps": [
+      "Compare synthetic connection count with configured client limit.",
+      "Check sandbox client connection lifecycle and recent changes."
+    ],
+    "resolution_steps": [
+      "In the sandbox, correct the lab client connection cleanup configuration after operator review."
+    ],
+    "validation_steps": [
+      "Rerun the synthetic client fixture and verify connections return to baseline."
+    ],
+    "rollback_steps": [
+      "Restore the previous lab client configuration if validation fails."
+    ],
+    "stop_conditions": [
+      "Stop if the environment differs, evidence is missing or privileges are insufficient."
+    ],
+    "reviewer": "reviewer-b",
+    "tested_by": "tester-c",
+    "reviewed_at": "2026-09-29T00:00:00+00:00",
+    "review_expires_at": "2026-10-29T00:00:00+00:00"
+  },
+  {
+    "runbook_id": "RB-LAB-006",
+    "title": "Kafka consumer lag rising after rebalance",
+    "service": "Kafka",
+    "environment": "sandbox",
+    "platform_version": "lab-v1",
+    "symptom": "Kafka consumer lag rising after rebalance",
+    "owner": "author-d",
+    "status": "draft",
+    "source_ticket_ids": [
+      "LAB-006"
+    ],
+    "validation_evidence": "Synthetic consumer fixture only; no production change or reliability claim.",
+    "prerequisites": [
+      "Confirm sandbox Kafka scope and read-only consumer-group access."
+    ],
+    "diagnostic_steps": [
+      "Inspect synthetic lag per partition and group membership.",
+      "Compare rebalance timestamps with synthetic client restart events."
+    ],
+    "resolution_steps": [
+      "After sandbox review, correct the test consumer restart schedule and rerun the workload."
+    ],
+    "validation_steps": [
+      "Verify stable synthetic group membership and falling lag under unchanged workload."
+    ],
+    "rollback_steps": [
+      "Restore the prior test schedule if group stability worsens."
+    ],
+    "stop_conditions": [
+      "Stop on production scope, unknown ownership or missing measurements."
+    ]
+  },
+  {
+    "runbook_id": "RB-OLD",
+    "title": "Redis client connection limit exhausted",
+    "service": "NiFi",
+    "environment": "sandbox",
+    "platform_version": "lab-v1",
+    "symptom": "NiFi queue backpressure blocked flow",
+    "owner": "author-a",
+    "status": "approved",
+    "source_ticket_ids": [
+      "LAB-003"
+    ],
+    "validation_evidence": "Synthetic fixture completed; no real Redis change or production evidence.",
+    "prerequisites": [
+      "Confirm sandbox Redis service and approved access; capture current state."
+    ],
+    "diagnostic_steps": [
+      "Compare synthetic connection count with configured client limit.",
+      "Check sandbox client connection lifecycle and recent changes."
+    ],
+    "resolution_steps": [
+      "In the sandbox, correct the lab client connection cleanup configuration after operator review."
+    ],
+    "validation_steps": [
+      "Rerun the synthetic client fixture and verify connections return to baseline."
+    ],
+    "rollback_steps": [
+      "Restore the previous lab client configuration if validation fails."
+    ],
+    "stop_conditions": [
+      "Stop if the environment differs, evidence is missing or privileges are insufficient."
+    ],
+    "reviewer": "reviewer-b",
+    "tested_by": "tester-c",
+    "reviewed_at": "2026-08-04T00:00:00+00:00",
+    "review_expires_at": "2026-09-03T00:00:00+00:00"
+  }
+]

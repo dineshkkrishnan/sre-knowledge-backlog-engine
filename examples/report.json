@@ -1,0 +1,368 @@
+{
+  "as_of": "2026-10-03T00:00:00+00:00",
+  "open_backlog": 10,
+  "missing_owner": 2,
+  "blocked": 3,
+  "sme_required": 6,
+  "reported_sme_wait_hours": 34,
+  "suggestion_coverage": 0.2,
+  "triage": [
+    {
+      "ticket_id": "LAB-007",
+      "service": "EKS",
+      "environment": "sandbox",
+      "priority": "P1",
+      "age_days": 1,
+      "owner": "engineer-a",
+      "missing_owner": false,
+      "blocked": false,
+      "sme_required": false,
+      "symptom": "Pod image pull denied authentication",
+      "reasons": [
+        "P1 severity",
+        "1 whole days old"
+      ],
+      "suggestions": []
+    },
+    {
+      "ticket_id": "LAB-008",
+      "service": "EKS",
+      "environment": "sandbox",
+      "priority": "P2",
+      "age_days": 3,
+      "owner": "engineer-a",
+      "missing_owner": false,
+      "blocked": false,
+      "sme_required": true,
+      "symptom": "Pod image pull denied authentication",
+      "reasons": [
+        "P2 severity",
+        "3 whole days old"
+      ],
+      "suggestions": []
+    },
+    {
+      "ticket_id": "LAB-012",
+      "service": "Apigee",
+      "environment": "sandbox",
+      "priority": "P2",
+      "age_days": 2,
+      "owner": "engineer-a",
+      "missing_owner": false,
+      "blocked": false,
+      "sme_required": false,
+      "symptom": "Gateway request validation rejected",
+      "reasons": [
+        "P2 severity",
+        "2 whole days old"
+      ],
+      "suggestions": []
+    },
+    {
+      "ticket_id": "LAB-001",
+      "service": "Redis",
+      "environment": "sandbox",
+      "priority": "P3",
+      "age_days": 22,
+      "owner": null,
+      "missing_owner": true,
+      "blocked": false,
+      "sme_required": true,
+      "symptom": "Redis client connection limit exhausted",
+      "reasons": [
+        "P3 severity",
+        "22 whole days old",
+        "missing owner"
+      ],
+      "suggestions": [
+        {
+          "runbook_id": "RB-LAB-003",
+          "title": "Redis client connection limit exhausted",
+          "score": 1.0,
+          "source": "data/runbooks.json#RB-LAB-003",
+          "prerequisites": [
+            "Confirm sandbox Redis service and approved access; capture current state."
+          ],
+          "stop_conditions": [
+            "Stop if the environment differs, evidence is missing or privileges are insufficient."
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "LAB-005",
+      "service": "Kafka",
+      "environment": "sandbox",
+      "priority": "P3",
+      "age_days": 6,
+      "owner": null,
+      "missing_owner": true,
+      "blocked": true,
+      "sme_required": true,
+      "symptom": "Kafka consumer lag rising after rebalance",
+      "reasons": [
+        "P3 severity",
+        "6 whole days old",
+        "missing owner",
+        "blocked: coordinate next step"
+      ],
+      "suggestions": []
+    },
+    {
+      "ticket_id": "LAB-004",
+      "service": "Kafka",
+      "environment": "sandbox",
+      "priority": "P3",
+      "age_days": 18,
+      "owner": "engineer-a",
+      "missing_owner": false,
+      "blocked": false,
+      "sme_required": true,
+      "symptom": "Kafka consumer lag rising after rebalance",
+      "reasons": [
+        "P3 severity",
+        "18 whole days old"
+      ],
+      "suggestions": []
+    },
+    {
+      "ticket_id": "LAB-002",
+      "service": "Redis",
+      "environment": "sandbox",
+      "priority": "P3",
+      "age_days": 8,
+      "owner": "engineer-a",
+      "missing_owner": false,
+      "blocked": true,
+      "sme_required": true,
+      "symptom": "Redis client connection limit exhausted",
+      "reasons": [
+        "P3 severity",
+        "8 whole days old",
+        "blocked: coordinate next step"
+      ],
+      "suggestions": [
+        {
+          "runbook_id": "RB-LAB-003",
+          "title": "Redis client connection limit exhausted",
+          "score": 1.0,
+          "source": "data/runbooks.json#RB-LAB-003",
+          "prerequisites": [
+            "Confirm sandbox Redis service and approved access; capture current state."
+          ],
+          "stop_conditions": [
+            "Stop if the environment differs, evidence is missing or privileges are insufficient."
+          ]
+        }
+      ]
+    },
+    {
+      "ticket_id": "LAB-011",
+      "service": "Redis",
+      "environment": "other-sandbox",
+      "priority": "P3",
+      "age_days": 5,
+      "owner": "engineer-a",
+      "missing_owner": false,
+      "blocked": false,
+      "sme_required": true,
+      "symptom": "Redis client connection limit exhausted",
+      "reasons": [
+        "P3 severity",
+        "5 whole days old"
+      ],
+      "suggestions": []
+    },
+    {
+      "ticket_id": "LAB-009",
+      "service": "NiFi",
+      "environment": "sandbox",
+      "priority": "P4",
+      "age_days": 35,
+      "owner": "engineer-a",
+      "missing_owner": false,
+      "blocked": true,
+      "sme_required": false,
+      "symptom": "NiFi queue backpressure blocked flow",
+      "reasons": [
+        "P4 severity",
+        "35 whole days old",
+        "blocked: coordinate next step"
+      ],
+      "suggestions": []
+    },
+    {
+      "ticket_id": "LAB-010",
+      "service": "NiFi",
+      "environment": "sandbox",
+      "priority": "P4",
+      "age_days": 15,
+      "owner": "engineer-a",
+      "missing_owner": false,
+      "blocked": false,
+      "sme_required": false,
+      "symptom": "NiFi queue backpressure blocked flow",
+      "reasons": [
+        "P4 severity",
+        "15 whole days old"
+      ],
+      "suggestions": []
+    }
+  ],
+  "recurring_patterns": [
+    {
+      "service": "Redis",
+      "environment": "sandbox",
+      "platform_version": "lab-v1",
+      "symptom": "Redis client connection limit exhausted",
+      "ticket_ids": [
+        "LAB-001",
+        "LAB-002",
+        "LAB-003"
+      ],
+      "occurrences": 3,
+      "open_count": 2,
+      "uncovered_open_ticket_ids": []
+    },
+    {
+      "service": "Kafka",
+      "environment": "sandbox",
+      "platform_version": "lab-v1",
+      "symptom": "Kafka consumer lag rising after rebalance",
+      "ticket_ids": [
+        "LAB-004",
+        "LAB-005",
+        "LAB-006"
+      ],
+      "occurrences": 3,
+      "open_count": 2,
+      "uncovered_open_ticket_ids": [
+        "LAB-004",
+        "LAB-005"
+      ]
+    },
+    {
+      "service": "EKS",
+      "environment": "sandbox",
+      "platform_version": "lab-v1",
+      "symptom": "Pod image pull denied authentication",
+      "ticket_ids": [
+        "LAB-007",
+        "LAB-008"
+      ],
+      "occurrences": 2,
+      "open_count": 2,
+      "uncovered_open_ticket_ids": [
+        "LAB-007",
+        "LAB-008"
+      ]
+    },
+    {
+      "service": "NiFi",
+      "environment": "sandbox",
+      "platform_version": "lab-v1",
+      "symptom": "NiFi queue backpressure blocked flow",
+      "ticket_ids": [
+        "LAB-009",
+        "LAB-010"
+      ],
+      "occurrences": 2,
+      "open_count": 2,
+      "uncovered_open_ticket_ids": [
+        "LAB-009",
+        "LAB-010"
+      ]
+    }
+  ],
+  "knowledge_gaps": [
+    {
+      "service": "Kafka",
+      "environment": "sandbox",
+      "platform_version": "lab-v1",
+      "symptom": "Kafka consumer lag rising after rebalance",
+      "ticket_ids": [
+        "LAB-004",
+        "LAB-005",
+        "LAB-006"
+      ],
+      "occurrences": 3,
+      "open_count": 2,
+      "uncovered_open_ticket_ids": [
+        "LAB-004",
+        "LAB-005"
+      ],
+      "next_step": "Capture a reviewed procedure from a resolved example or schedule SME investigation"
+    },
+    {
+      "service": "EKS",
+      "environment": "sandbox",
+      "platform_version": "lab-v1",
+      "symptom": "Pod image pull denied authentication",
+      "ticket_ids": [
+        "LAB-007",
+        "LAB-008"
+      ],
+      "occurrences": 2,
+      "open_count": 2,
+      "uncovered_open_ticket_ids": [
+        "LAB-007",
+        "LAB-008"
+      ],
+      "next_step": "Capture a reviewed procedure from a resolved example or schedule SME investigation"
+    },
+    {
+      "service": "NiFi",
+      "environment": "sandbox",
+      "platform_version": "lab-v1",
+      "symptom": "NiFi queue backpressure blocked flow",
+      "ticket_ids": [
+        "LAB-009",
+        "LAB-010"
+      ],
+      "occurrences": 2,
+      "open_count": 2,
+      "uncovered_open_ticket_ids": [
+        "LAB-009",
+        "LAB-010"
+      ],
+      "next_step": "Capture a reviewed procedure from a resolved example or schedule SME investigation"
+    }
+  ],
+  "services": [
+    {
+      "service": "Apigee",
+      "open": 1,
+      "sme_required": 0,
+      "reported_sme_wait_hours": 0,
+      "suggestion_coverage": 0.0
+    },
+    {
+      "service": "EKS",
+      "open": 2,
+      "sme_required": 1,
+      "reported_sme_wait_hours": 2,
+      "suggestion_coverage": 0.0
+    },
+    {
+      "service": "Kafka",
+      "open": 2,
+      "sme_required": 2,
+      "reported_sme_wait_hours": 11,
+      "suggestion_coverage": 0.0
+    },
+    {
+      "service": "NiFi",
+      "open": 2,
+      "sme_required": 0,
+      "reported_sme_wait_hours": 0,
+      "suggestion_coverage": 0.0
+    },
+    {
+      "service": "Redis",
+      "open": 3,
+      "sme_required": 3,
+      "reported_sme_wait_hours": 21,
+      "suggestion_coverage": 0.6666666666666666
+    }
+  ]
+}
